@@ -1,0 +1,226 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Heuristic analysis
+\end_layout
+
+\begin_layout Standard
+our analysis should conclude with a comparison of the different heuristics
+ and your reasoning for choosing the heuristic you ultimately use in your
+ submitted agent.
+\end_layout
+
+\begin_layout Standard
+I have implemented three different heuristic functons for the isolation
+ game:
+\end_layout
+
+\begin_layout Standard
+1.
+ heuristic_func_1: Parametrized evaluation function using number of own
+ moves and number of opponent player moves 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+func=ownMoves-0.5\times oppMoves+1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here ownMoves are number of moves available for own player, and oppMove
+ are number of moves available for opponent player.
+\end_layout
+
+\begin_layout Standard
+2.
+ heuristic_func_2:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+func=-oppMoves
+\]
+
+\end_inset
+
+oppMove is the number of moves available for opponent player.
+\end_layout
+
+\begin_layout Standard
+3.
+ heuristic_func_3:
+\end_layout
+
+\begin_layout Standard
+if blank spaces are larger than 25:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+func=0.5\times ownMoves-oppMoves
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+else:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+func=ownMoves-0.5\times oppMoves
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function evaluates based on the number of occupied space.
+ When board positions are less than half occupied, agent weighs to reduce
+ opponent's legal move.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Performance Evaluation
+\end_layout
+
+\begin_layout Standard
+The performace of these three heuristic functions comparing to the basic
+ heuristic function is plotted below.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Analysis1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.1 Winning rate for different heuristic function and basic heuristic function
+ applied in the game.
+\end_layout
+
+\begin_layout Standard
+The performance for each function on different game agent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Analysis2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fig.2 The performance of different heuristic function on different game agents.
+ Blue one for custom function 1, red for custom function 2, green for custom
+ functon 3 and yellow for custom function 4.
+ 
+\end_layout
+
+\begin_layout Standard
+According to abover analysis, we would like to choose the custom function
+ 1 
+\begin_inset Formula $func=ownMoves-0.5\times oppMoves+1$
+\end_inset
+
+ as our choiced function in the game.
+ Because this function has the (1) highest winning rate, (2) its performance
+ is stable while versus different game agents and (3) when runnning multiple
+ times, the hueristic function custom function 1 is always the best one
+ comparing to other heuristic functions.
+\end_layout
+
+\end_body
+\end_document
